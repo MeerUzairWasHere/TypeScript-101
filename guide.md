@@ -1,24 +1,22 @@
-
-
 ## Type - "any"
 
 In TypeScript, the "any" type is a powerful way to work with existing JavaScript, allowing you to opt-out of type-checking and let the values pass through compile-time checks. It means a variable declared with the any type can hold a value of any type. Later will also cover - "unknown" and "never"
 
 ```ts
 let notSure: any = 4;
-notSure = 'maybe a string instead';
+notSure = "maybe a string instead";
 notSure = false; // okay, definitely a boolean
 ```
 
 ## Practical Application of Type Annotation
 
 ```ts
-const books = ['1984', 'Brave New World', 'Fahrenheit 451'];
+const books = ["1984", "Brave New World", "Fahrenheit 451"];
 
 let foundBook: string | undefined;
 
 for (let book of books) {
-  if (book === '1984') {
+  if (book === "1984") {
     foundBook = book;
     foundBook = foundBook.toUpperCase();
     break;
@@ -37,14 +35,14 @@ The reason to explicitly type foundBook as string | undefined is to make it clea
 
 ```ts
 // 1. Order Status
-let orderStatus: 'processing' | 'shipped' | 'delivered' = 'processing';
-orderStatus = 'shipped';
-orderStatus = 'delivered';
+let orderStatus: "processing" | "shipped" | "delivered" = "processing";
+orderStatus = "shipped";
+orderStatus = "delivered";
 // orderStatus = 'cancelled'; // This will result in a TypeScript error
 
 // 2. Discount
 let discount: number | string = 20;
-discount = '20%';
+discount = "20%";
 // discount = true; // This will result in a TypeScript error
 ```
 
@@ -55,7 +53,7 @@ In TypeScript, arrays are used to store multiple values in a single variable. Yo
 ```ts
 let prices: number[] = [100, 75, 42];
 
-let fruit: string[] = ['apple', 'orange'];
+let fruit: string[] = ["apple", "orange"];
 // fruit.push(1);
 // let people: string[] = ['bobo', 'peter', 1];
 //
@@ -65,7 +63,7 @@ let fruit: string[] = ['apple', 'orange'];
 // be careful with inferred array types
 // let names = ['peter', 'susan'];
 // let names = ['peter', 'susan', 1];
-let array: (string | boolean)[] = ['apple', true, 'orange', false];
+let array: (string | boolean)[] = ["apple", true, "orange", false];
 ```
 
 ## Challenge
@@ -80,11 +78,11 @@ let temperatures: number[] = [20, 25, 30];
 // temperatures.push('hot'); // This will result in a TypeScript error
 
 // 2. Colors
-let colors: string[] = ['red', 'green', 'blue'];
+let colors: string[] = ["red", "green", "blue"];
 // colors.push(true); // This will result in a TypeScript error
 
 // 3. Mixed Array
-let mixedArray: (number | string)[] = [1, 'two', 3];
+let mixedArray: (number | string)[] = [1, "two", 3];
 // mixedArray.push(true); // This will result in a TypeScript error
 ```
 
@@ -93,20 +91,20 @@ let mixedArray: (number | string)[] = [1, 'two', 3];
 In TypeScript, an object is a collection of key-value pairs with specified types for each key, providing static type checking for properties.
 
 ```ts
-let car: { brand: string; year: number } = { brand: 'toyota', year: 2020 };
-car.brand = 'ford';
+let car: { brand: string; year: number } = { brand: "toyota", year: 2020 };
+car.brand = "ford";
 // car.color = 'blue';
 
-let car1: { brand: string; year: number } = { brand: 'audi', year: 2021 };
+let car1: { brand: string; year: number } = { brand: "audi", year: 2021 };
 // let car2: { brand: string; year: number } = { brand: 'audi' };
 
-let book = { title: 'book', cost: 20 };
-let pen = { title: 'pen', cost: 5 };
-let notebook = { title: 'notebook' };
+let book = { title: "book", cost: 20 };
+let pen = { title: "pen", cost: 5 };
+let notebook = { title: "notebook" };
 
 let items: { readonly title: string; cost?: number }[] = [book, pen, notebook];
 
-items[0].title = 'new book'; // Error: Cannot assign to 'title' because it is a read-only property
+items[0].title = "new book"; // Error: Cannot assign to 'title' because it is a read-only property
 ```
 
 ## Challenge
@@ -117,16 +115,16 @@ items[0].title = 'new book'; // Error: Cannot assign to 'title' because it is a 
 
 ```ts
 // 1. Bike
-let bike: { brand: string; year: number } = { brand: 'Yamaha', year: 2010 };
+let bike: { brand: string; year: number } = { brand: "Yamaha", year: 2010 };
 // bike.year = 'old'; // This will result in a TypeScript error
 
 // 2. Laptop
-let laptop: { brand: string; year: number } = { brand: 'Dell', year: 2020 };
+let laptop: { brand: string; year: number } = { brand: "Dell", year: 2020 };
 // let laptop2: { brand: string, year: number } = { brand: 'HP' }; // This will result in a TypeScript error
 
 // 3. Products
-let product1 = { title: 'Shirt', price: 20 };
-let product2 = { title: 'Pants' };
+let product1 = { title: "Shirt", price: 20 };
+let product2 = { title: "Pants" };
 let products: { title: string; price?: number }[] = [product1, product2];
 // products.push({ title: 'Shoes', price: 'expensive' }); // This will result in a TypeScript error
 ```
@@ -140,7 +138,7 @@ function sayHi(name: string) {
   console.log(`Hello there ${name.toUpperCase()}!!!`);
 }
 
-sayHi('john');
+sayHi("john");
 // sayHi(3)
 // sayHi('peter', 'random');
 
@@ -176,13 +174,13 @@ someValue.myMethod();
 - Use this function to check if various names are in your array and log the results.
 
 ```ts
-const names: string[] = ['John', 'Jane', 'Jim', 'Jill'];
+const names: string[] = ["John", "Jane", "Jim", "Jill"];
 
 function isNameInList(name: string): boolean {
   return names.includes(name);
 }
 
-let nameToCheck: string = 'Jane';
+let nameToCheck: string = "Jane";
 if (isNameInList(nameToCheck)) {
   console.log(`${nameToCheck} is in the list.`);
 } else {
@@ -235,7 +233,7 @@ function sum(message: string, ...numbers: number[]): string {
   return `${message} ${total}`;
 }
 
-let result = sum('The total is:', 1, 2, 3, 4, 5); // result will be "The total is: 15"
+let result = sum("The total is:", 1, 2, 3, 4, 5); // result will be "The total is: 15"
 ```
 
 ## Functions - "void" return type
@@ -247,7 +245,7 @@ function logMessage(message: string): void {
   console.log(message);
 }
 
-logMessage('Hello, TypeScript!'); // Output: Hello, TypeScript!
+logMessage("Hello, TypeScript!"); // Output: Hello, TypeScript!
 ```
 
 It's important to note that in TypeScript, a function that is declared with a void return type can still return a value, but the value will be ignored.For example, the following code is valid TypeScript:
@@ -255,10 +253,10 @@ It's important to note that in TypeScript, a function that is declared with a vo
 ```ts
 function logMessage(message: string): void {
   console.log(message);
-  return 'This value is ignored';
+  return "This value is ignored";
 }
 
-logMessage('Hello, TypeScript!'); // Output: Hello, TypeScript!
+logMessage("Hello, TypeScript!"); // Output: Hello, TypeScript!
 ```
 
 ## Functions - Using Union Types as Function Parameters
@@ -272,7 +270,7 @@ Your task is to create a function named processInput that accepts a parameter of
 
 ```ts
 function processInput(input: string | number) {
-  if (typeof input === 'number') {
+  if (typeof input === "number") {
     console.log(input * 2);
   } else {
     console.log(input.toUpperCase());
@@ -280,7 +278,7 @@ function processInput(input: string | number) {
 }
 
 processInput(10); // Output: 20
-processInput('Hello'); // Output: HELLO
+processInput("Hello"); // Output: HELLO
 ```
 
 In this example, the processInput function takes a parameter input that can be either a string or a number. Inside the function, we use a type guard (typeof input === 'number') to check the type of input at runtime. If input is a number, we double it. If input is a string, we convert it to uppercase.
@@ -306,7 +304,7 @@ function createStudent(student: { id: number; name: string }) {
 
 const newStudent = {
   id: 5,
-  name: 'anna',
+  name: "anna",
 };
 
 createStudent(newStudent);
@@ -321,12 +319,12 @@ function createStudent(student: { id: number; name: string }) {
 
 const newStudent = {
   id: 5,
-  name: 'anna',
-  email: 'anna@gmail.com',
+  name: "anna",
+  email: "anna@gmail.com",
 };
 
 createStudent(newStudent);
-createStudent({ id: 1, name: 'bob', email: 'bob@gmail.com' });
+createStudent({ id: 1, name: "bob", email: "bob@gmail.com" });
 ```
 
 TypeScript only performs excess property checks on object literals where they're used, not on references to them.
@@ -353,18 +351,18 @@ function processData(
   input: string | number,
   config: { reverse: boolean } = { reverse: false }
 ): string | number {
-  if (typeof input === 'number') {
+  if (typeof input === "number") {
     return input * input;
   } else {
     return config.reverse
-      ? input.toUpperCase().split('').reverse().join('')
+      ? input.toUpperCase().split("").reverse().join("")
       : input.toUpperCase();
   }
 }
 
 console.log(processData(10)); // Output: 100
-console.log(processData('Hello')); // Output: HELLO
-console.log(processData('Hello', { reverse: true })); // Output: OLLEH
+console.log(processData("Hello")); // Output: HELLO
+console.log(processData("Hello", { reverse: true })); // Output: OLLEH
 ```
 
 ## Type Alias
@@ -374,12 +372,12 @@ A type alias in TypeScript is a new name or shorthand for an existing type, maki
 ```ts
 const john: { id: number; name: string; isActive: boolean } = {
   id: 1,
-  name: 'john',
+  name: "john",
   isActive: true,
 };
 const susan: { id: number; name: string; isActive: boolean } = {
   id: 1,
-  name: 'susan',
+  name: "susan",
   isActive: false,
 };
 
@@ -399,12 +397,12 @@ type User = { id: number; name: string; isActive: boolean };
 
 const john: User = {
   id: 1,
-  name: 'john',
+  name: "john",
   isActive: true,
 };
 const susan: User = {
   id: 1,
-  name: 'susan',
+  name: "susan",
   isActive: false,
 };
 
@@ -416,21 +414,21 @@ function createUser(user: User): User {
 type StringOrNumber = string | number; // Type alias for string | number
 
 let value: StringOrNumber;
-value = 'hello'; // This is valid
+value = "hello"; // This is valid
 value = 123; // This is also valid
 
-type Theme = 'light' | 'dark'; // Type alias for theme
+type Theme = "light" | "dark"; // Type alias for theme
 
 let theme: Theme;
-theme = 'light'; // This is valid
-theme = 'dark'; // This is also valid
+theme = "light"; // This is valid
+theme = "dark"; // This is also valid
 
 // Function that accepts the Theme type alias
 function setTheme(t: Theme) {
   theme = t;
 }
 
-setTheme('dark'); // This will set the theme to 'dark'
+setTheme("dark"); // This will set the theme to 'dark'
 ```
 
 ## Challenge
@@ -454,7 +452,7 @@ type Manager = { id: number; name: string; employees: Employee[] };
 type Staff = Employee | Manager;
 
 function printStaffDetails(staff: Staff) {
-  if ('employees' in staff) {
+  if ("employees" in staff) {
     console.log(
       `${staff.name} is a manager of ${staff.employees.length} employees.`
     );
@@ -465,9 +463,9 @@ function printStaffDetails(staff: Staff) {
   }
 }
 
-const alice: Employee = { id: 1, name: 'Alice', department: 'Sales' };
-const steve: Employee = { id: 1, name: 'Steve', department: 'HR' };
-const bob: Manager = { id: 2, name: 'Bob', employees: [alice, steve] };
+const alice: Employee = { id: 1, name: "Alice", department: "Sales" };
+const steve: Employee = { id: 1, name: "Steve", department: "HR" };
+const bob: Manager = { id: 2, name: "Bob", employees: [alice, steve] };
 
 printStaffDetails(alice); // Outputs: Alice is an employee in the Sales department.
 printStaffDetails(bob);
@@ -482,19 +480,19 @@ type Book = { id: number; name: string; price: number };
 type DiscountedBook = Book & { discount: number };
 const book1: Book = {
   id: 2,
-  name: 'How to Cook a Dragon',
+  name: "How to Cook a Dragon",
   price: 15,
 };
 
 const book2: Book = {
   id: 3,
-  name: 'The Secret Life of Unicorns',
+  name: "The Secret Life of Unicorns",
   price: 18,
 };
 
 const discountedBook: DiscountedBook = {
   id: 4,
-  name: 'Gnomes vs. Goblins: The Ultimate Guide',
+  name: "Gnomes vs. Goblins: The Ultimate Guide",
   price: 25,
   discount: 0.15,
 };
@@ -505,7 +503,7 @@ const discountedBook: DiscountedBook = {
 Computed properties in JavaScript are a feature that allows you to dynamically create property keys on objects. This is done by wrapping an expression in square brackets [] that computes the property name when creating an object.
 
 ```ts
-const propName = 'age';
+const propName = "age";
 
 type Animal = {
   [propName]: number;
@@ -528,12 +526,12 @@ interface Book {
 
 const deepWork: Book = {
   isbn: 9781455586691,
-  title: 'Deep Work',
-  author: 'Cal Newport',
-  genre: 'Self-help',
+  title: "Deep Work",
+  author: "Cal Newport",
+  genre: "Self-help",
 };
 
-deepWork.title = 'New Title'; // allowed
+deepWork.title = "New Title"; // allowed
 // deepWork.isbn = 654321; // not allowed
 ```
 
@@ -552,9 +550,9 @@ interface Book {
 
 const deepWork: Book = {
   isbn: 9781455586691,
-  title: 'Deep Work',
-  author: 'Cal Newport',
-  genre: 'Self-help',
+  title: "Deep Work",
+  author: "Cal Newport",
+  genre: "Self-help",
   printAuthor() {
     console.log(this.author);
   },
@@ -563,7 +561,7 @@ const deepWork: Book = {
   },
 };
 deepWork.printAuthor();
-const result = deepWork.printTitle('is an awesome book');
+const result = deepWork.printTitle("is an awesome book");
 console.log(result);
 ```
 
@@ -585,9 +583,9 @@ interface Book {
 
 const deepWork: Book = {
   isbn: 9781455586691,
-  title: 'Deep Work',
-  author: 'Cal Newport',
-  genre: 'Self-help',
+  title: "Deep Work",
+  author: "Cal Newport",
+  genre: "Self-help",
   printAuthor() {
     console.log(this.author);
   },
@@ -616,7 +614,7 @@ const deepWork: Book = {
 console.log(deepWork.printSomething(34));
 
 deepWork.printAuthor();
-const result = deepWork.printTitle('is an awesome book');
+const result = deepWork.printTitle("is an awesome book");
 console.log(result);
 ```
 
@@ -641,7 +639,7 @@ interface Computer {
 
 const laptop: Computer = {
   id: 1,
-  brand: 'random brand',
+  brand: "random brand",
   ram: 8, // in GB
   upgradeRam(amount: number) {
     this.ram += amount;
@@ -677,7 +675,7 @@ interface Person {
 
 // Usage
 const person: Person = {
-  name: 'John',
+  name: "John",
   age: 30,
   getDetails() {
     return `Name: ${this.name}, Age: ${this.age}`;
@@ -692,7 +690,7 @@ interface Employee extends Person {
 }
 
 const employee: Employee = {
-  name: 'jane',
+  name: "jane",
   age: 28,
   employeeId: 123,
   getDetails() {
@@ -706,9 +704,9 @@ interface Manager extends Person, DogOwner {
 }
 
 const manager: Manager = {
-  name: 'Bob',
+  name: "Bob",
   age: 35,
-  dogName: 'Rex',
+  dogName: "Rex",
   getDetails() {
     return `Name: ${this.name}, Age: ${this.age}`;
   },
@@ -716,7 +714,7 @@ const manager: Manager = {
     return `Dog Name: ${this.dogName}`;
   },
   managePeople() {
-    console.log('Managing people...');
+    console.log("Managing people...");
   },
 };
 ```
@@ -751,18 +749,18 @@ function getEmployee(): Person | DogOwner | Manager {
 
   if (random < 0.33) {
     return {
-      name: 'john',
+      name: "john",
     };
   } else if (random < 0.66) {
     return {
-      name: 'sarah',
-      dogName: 'Rex',
+      name: "sarah",
+      dogName: "Rex",
     };
   } else {
     return {
-      name: 'bob',
-      managePeople: () => console.log('Managing people...'),
-      delegateTasks: () => console.log('Delegating tasks...'),
+      name: "bob",
+      managePeople: () => console.log("Managing people..."),
+      delegateTasks: () => console.log("Delegating tasks..."),
     };
   }
 }
@@ -781,7 +779,7 @@ A type predicate in TypeScript is a special kind of return type for a function t
 // }
 
 function isManager(obj: Person | DogOwner | Manager): obj is Manager {
-  return 'managePeople' in obj;
+  return "managePeople" in obj;
 }
 
 if (isManager(employee)) {
@@ -799,7 +797,7 @@ type Person = {
   age: number;
 };
 
-let john: Person = { name: 'John', age: 30 };
+let john: Person = { name: "John", age: 30 };
 ```
 
 Interface
@@ -812,7 +810,7 @@ interface Person {
   age: number;
 }
 
-let john: Person = { name: 'John', age: 30 };
+let john: Person = { name: "John", age: 30 };
 ```
 
 Key Differences
@@ -824,11 +822,11 @@ Key Differences
 type Score = number;
 type NumberOrString = number | string;
 // Type alias for literal types
-type Direction = 'up' | 'down' | 'left' | 'right';
+type Direction = "up" | "down" | "left" | "right";
 
 // Using the type aliases
 let gameScore: Score = 100;
-let move: Direction = 'up';
+let move: Direction = "up";
 ```
 
 - Interfaces can be merged using declaration merging. If you define an interface with the same name more than once, TypeScript will merge their definitions. Type aliases can't be merged in this way.
@@ -854,12 +852,12 @@ class Employee implements Person {
   }
 }
 
-let john = new Employee('John');
+let john = new Employee("John");
 john.greet(); // Outputs: Hello, my name is John
 ```
 
 ```ts
-const propName = 'age';
+const propName = "age";
 
 type Animal = {
   [propName]: number;
@@ -877,14 +875,14 @@ Tuples are useful when you want to return multiple values from a function.
 By default, tuples in TypeScript are not read-only. This means you can modify the values of the elements in the tuple.However, TypeScript does provide a way to make tuples read-only using the readonly keyword.
 
 ```ts
-let person: [string, number] = ['john', 25];
+let person: [string, number] = ["john", 25];
 console.log(person[0]); // Outputs: john
 console.log(person[1]); // Outputs: 25
 
-let john: [string, number?] = ['john'];
+let john: [string, number?] = ["john"];
 
 function getPerson(): [string, number] {
-  return ['john', 25];
+  return ["john", 25];
 }
 
 let randomPerson = getPerson();
@@ -895,7 +893,7 @@ console.log(randomPerson[1]);
 // susan[0] = 'bob';
 // susan.push('some random value');
 
-let susan: readonly [string, number] = ['susan', 25];
+let susan: readonly [string, number] = ["susan", 25];
 // susan[0] = 'bob';
 // susan.push('some random value');
 console.log(susan);
@@ -908,7 +906,7 @@ Enums in TypeScript allow us to define a set of named constants. Using enums can
 ```ts
 enum ServerResponseStatus {
   Success = 200,
-  Error = 'Error',
+  Error = "Error",
 }
 
 interface ServerResponse {
@@ -919,7 +917,7 @@ interface ServerResponse {
 function getServerResponse(): ServerResponse {
   return {
     result: ServerResponseStatus.Success,
-    data: ['first item', 'second item'],
+    data: ["first item", "second item"],
   };
 }
 
@@ -935,8 +933,8 @@ In a string enum, TypeScript does not create a reverse mapping. This means that 
 
 ```ts
 enum ServerResponseStatus {
-  Success = 'Success',
-  Error = 'Error',
+  Success = "Success",
+  Error = "Error",
 }
 
 Object.values(ServerResponseStatus).forEach((value) => {
@@ -951,7 +949,7 @@ enum ServerResponseStatus {
 }
 
 Object.values(ServerResponseStatus).forEach((value) => {
-  if (typeof value === 'number') {
+  if (typeof value === "number") {
     console.log(value);
   }
 });
@@ -963,27 +961,27 @@ enum NumericEnum {
 }
 
 enum StringEnum {
-  Member = 'Value',
+  Member = "Value",
 }
 
 let numericEnumValue: NumericEnum = 1; // This is allowed
 console.log(numericEnumValue); // 1
 
-let stringEnumValue: StringEnum = 'Value'; // This is not allowed
+let stringEnumValue: StringEnum = "Value"; // This is not allowed
 ```
 
 ```ts
 enum ServerResponseStatus {
-  Success = 'Success',
-  Error = 'Error',
+  Success = "Success",
+  Error = "Error",
 }
 
 function getServerResponse(): ServerResponse {
   return {
     // result: ServerResponseStatus.Success,
     // this will not fly with string enum but ok with number
-    result: 'Success',
-    data: ['first item', 'second item'],
+    result: "Success",
+    data: ["first item", "second item"],
   };
 }
 ```
@@ -1019,9 +1017,9 @@ function createUser(user: User): User {
 // Call the createUser function
 const user: User = createUser({
   id: 1,
-  name: 'John Doe',
+  name: "John Doe",
   role: UserRole.Admin,
-  contact: ['john.doe@example.com', '123-456-7890'],
+  contact: ["john.doe@example.com", "123-456-7890"],
 });
 
 console.log(user);
@@ -1032,7 +1030,7 @@ console.log(user);
 Type assertion in TypeScript is a way to tell the compiler what the type of an existing variable is. This is especially useful when you know more about the type of a variable than TypeScript does.
 
 ```ts
-let someValue: any = 'This is a string';
+let someValue: any = "This is a string";
 
 // Using type assertion to treat 'someValue' as a string
 let strLength: number = (someValue as string).length;
@@ -1059,8 +1057,8 @@ console.log(bird.name);
 console.log(dog.name);
 
 enum Status {
-  Pending = 'pending',
-  Declined = 'declined',
+  Pending = "pending",
+  Declined = "declined",
 }
 
 type User = {
@@ -1069,9 +1067,9 @@ type User = {
 };
 // save Status.Pending in the DB as a string
 // retrieve string from the DB
-const statusValue = 'pending';
+const statusValue = "pending";
 
-const user: User = { name: 'john', status: statusValue as Status };
+const user: User = { name: "john", status: statusValue as Status };
 ```
 
 ## Type - 'unknown'
@@ -1084,14 +1082,14 @@ The unknown type in TypeScript is a type-safe counterpart of the any type. It's 
 let unknownValue: unknown;
 
 // Assign different types of values to unknownValue
-unknownValue = 'Hello World'; // OK
+unknownValue = "Hello World"; // OK
 unknownValue = [1, 2, 3]; // OK
 unknownValue = 42.3344556; // OK
 
 // unknownValue.toFixed( ); // Error: Object is of type 'unknown'
 
 // Now, let's try to use unknownValue
-if (typeof unknownValue === 'number') {
+if (typeof unknownValue === "number") {
   // TypeScript knows that unknownValue is a string in this block
   console.log(unknownValue.toFixed(2)); // OK
 }
@@ -1099,9 +1097,9 @@ if (typeof unknownValue === 'number') {
 function runSomeCode() {
   const random = Math.random();
   if (random < 0.5) {
-    throw new Error('Something went wrong');
+    throw new Error("Something went wrong");
   } else {
-    throw 'some error';
+    throw "some error";
   }
 }
 
@@ -1112,7 +1110,7 @@ try {
     console.log(error.message);
   } else {
     console.log(error);
-    console.log('there was an error....');
+    console.log("there was an error....");
   }
 }
 ```
@@ -1125,15 +1123,15 @@ TypeScript will give a compile error if there are any unhandled cases, helping e
 ```ts
 // let someValue: never = 0;
 
-type Theme = 'light' | 'dark';
+type Theme = "light" | "dark";
 
 function checkTheme(theme: Theme) {
-  if (theme === 'light') {
-    console.log('light theme');
+  if (theme === "light") {
+    console.log("light theme");
     return;
   }
-  if (theme === 'dark') {
-    console.log('dark theme');
+  if (theme === "dark") {
+    console.log("dark theme");
     return;
   }
   theme;
@@ -1151,9 +1149,9 @@ enum Color {
 function getColorName(color: Color) {
   switch (color) {
     case Color.Red:
-      return 'Red';
+      return "Red";
     case Color.Blue:
-      return 'Blue';
+      return "Blue";
     default:
       // at build time
       let unexpectedColor: never = color;
@@ -1174,19 +1172,19 @@ If your TypeScript files aren't modules (i.e., they don't have any import or exp
 tutorial.ts
 
 ```ts
-let name = 'shakeAdnBake';
+let name = "shakeAdnBake";
 
-const susan = 'susan';
+const susan = "susan";
 
-export let something = 'something';
+export let something = "something";
 ```
 
 actions.ts
 
 ```ts
-const susan = 'susan';
+const susan = "susan";
 
-export const something = 'something';
+export const something = "something";
 ```
 
 tsconfig.json
@@ -1210,7 +1208,7 @@ export function sayHello(name: string): void {
   console.log(`Hello ${name}!`);
 }
 
-export let person = 'susan';
+export let person = "susan";
 
 export type Student = {
   name: string;
@@ -1218,7 +1216,7 @@ export type Student = {
 };
 
 const newStudent: Student = {
-  name: 'peter',
+  name: "peter",
   age: 24,
 };
 
@@ -1226,14 +1224,14 @@ export default newStudent;
 ```
 
 ```ts
-import newStudent, { sayHello, person, type Student } from './actions';
+import newStudent, { sayHello, person, type Student } from "./actions";
 
-sayHello('TypeScript');
+sayHello("TypeScript");
 console.log(person);
 console.log(newStudent);
 
 const anotherStudent: Student = {
-  name: 'bob',
+  name: "bob",
   age: 23,
 };
 
@@ -1268,7 +1266,7 @@ type ValueType = string | number | boolean;
 
 let value: ValueType;
 const random = Math.random();
-value = random < 0.33 ? 'Hello' : random < 0.66 ? 123.456 : true;
+value = random < 0.33 ? "Hello" : random < 0.66 ? 123.456 : true;
 ```
 
 - Define the function checkValue that takes one parameter value of type ValueType.
@@ -1279,11 +1277,11 @@ value = random < 0.33 ? 'Hello' : random < 0.66 ? 123.456 : true;
 
 ```ts
 function checkValue(value: ValueType) {
-  if (typeof value === 'string') {
+  if (typeof value === "string") {
     console.log(value.toLowerCase());
     return;
   }
-  if (typeof value === 'number') {
+  if (typeof value === "number") {
     console.log(value.toFixed(2));
     return;
   }
@@ -1300,8 +1298,8 @@ In TypeScript, equality narrowing is a form of type narrowing that occurs when y
 - starter code
 
 ```ts
-type Dog = { type: 'dog'; name: string; bark: () => void };
-type Cat = { type: 'cat'; name: string; meow: () => void };
+type Dog = { type: "dog"; name: string; bark: () => void };
+type Cat = { type: "cat"; name: string; meow: () => void };
 type Animal = Dog | Cat;
 ```
 
@@ -1313,7 +1311,7 @@ type Animal = Dog | Cat;
 
 ```ts
 function makeSound(animal: Animal) {
-  if (animal.type === 'dog') {
+  if (animal.type === "dog") {
     // TypeScript knows that `animal` is a Dog in this block
     animal.bark();
   } else {
@@ -1330,8 +1328,8 @@ The "in" operator in TypeScript is used to narrow down the type of a variable wh
 - starter code
 
 ```ts
-type Dog = { type: 'dog'; name: string; bark: () => void };
-type Cat = { type: 'cat'; name: string; meow: () => void };
+type Dog = { type: "dog"; name: string; bark: () => void };
+type Cat = { type: "cat"; name: string; meow: () => void };
 type Animal = Dog | Cat;
 ```
 
@@ -1343,7 +1341,7 @@ type Animal = Dog | Cat;
 
 ```ts
 function makeSound(animal: Animal) {
-  if ('bark' in animal) {
+  if ("bark" in animal) {
     // TypeScript knows that `animal` is a Dog in this block
     animal.bark();
   } else {
@@ -1371,11 +1369,11 @@ function printLength(str: string | null | undefined) {
     // because `null` and `undefined` are falsy values.
     console.log(str.length);
   } else {
-    console.log('No string provided');
+    console.log("No string provided");
   }
 }
 
-printLength('Hello'); // Outputs: 5
+printLength("Hello"); // Outputs: 5
 printLength(null); // Outputs: No string provided
 printLength(undefined); // Outputs: No string provided
 ```
@@ -1387,12 +1385,12 @@ The instanceof type guard is a way in TypeScript to check the specific class or 
 ```ts
 try {
   // Some code that may throw an error
-  throw new Error('This is an error');
+  throw new Error("This is an error");
 } catch (error) {
   if (error instanceof Error) {
-    console.log('Caught an Error object: ' + error.message);
+    console.log("Caught an Error object: " + error.message);
   } else {
-    console.log('Caught an unknown error');
+    console.log("Caught an unknown error");
   }
 }
 ```
@@ -1414,7 +1412,7 @@ function checkInput(input: Date | string): string {
 }
 
 const year = checkInput(new Date());
-const random = checkInput('2020-05-05');
+const random = checkInput("2020-05-05");
 console.log(year);
 console.log(random);
 ```
@@ -1440,8 +1438,8 @@ type Person = Student | User;
 
 const randomPerson = (): Person => {
   return Math.random() > 0.5
-    ? { name: 'john', study: () => console.log('Studying') }
-    : { name: 'mary', login: () => console.log('Logging in') };
+    ? { name: "john", study: () => console.log("Studying") }
+    : { name: "mary", login: () => console.log("Logging in") };
 };
 
 const person = randomPerson();
@@ -1486,8 +1484,8 @@ type User = {
 type Person = Student | User;
 
 const person: Person = {
-  name: 'anna',
-  study: () => console.log('Studying'),
+  name: "anna",
+  study: () => console.log("Studying"),
   // login: () => console.log('Logging in'),
 };
 // person;
@@ -1538,14 +1536,14 @@ type Action = IncrementAction | DecrementAction;
 
 ```ts
 type IncrementAction = {
-  type: 'increment';
+  type: "increment";
   amount: number;
   timestamp: number;
   user: string;
 };
 
 type DecrementAction = {
-  type: 'decrement';
+  type: "decrement";
   amount: number;
   timestamp: number;
   user: string;
@@ -1555,9 +1553,9 @@ type Action = IncrementAction | DecrementAction;
 
 function reducer(state: number, action: Action): number {
   switch (action.type) {
-    case 'increment':
+    case "increment":
       return state + action.amount;
-    case 'decrement':
+    case "decrement":
       return state - action.amount;
 
     default:
@@ -1567,8 +1565,8 @@ function reducer(state: number, action: Action): number {
 }
 
 const newState = reducer(15, {
-  user: 'john',
-  type: 'increment',
+  user: "john",
+  type: "increment",
   amount: 5,
   timestamp: 123456,
 });
@@ -1587,7 +1585,7 @@ In other words, generics allow you to write a function or a class that can work 
 // let array2: number[] = [1, 2, 3];
 // let array3: boolean[] = [true, false, true];
 
-let array1: Array<string> = ['Apple', 'Banana', 'Mango'];
+let array1: Array<string> = ["Apple", "Banana", "Mango"];
 let array2: Array<number> = [1, 2, 3];
 let array3: Array<boolean> = [true, false, true];
 ```
@@ -1608,7 +1606,7 @@ function genericFunction<T>(arg: T): T {
   return arg;
 }
 
-const someStringValue = genericFunction<string>('Hello World');
+const someStringValue = genericFunction<string>("Hello World");
 const someNumberValue = genericFunction<number>(2);
 
 // Define a generic interface
@@ -1618,7 +1616,7 @@ interface GenericInterface<T> {
 }
 
 const genericString: GenericInterface<string> = {
-  value: 'Hello World',
+  value: "Hello World",
   getValue() {
     return this.value;
   },
@@ -1631,7 +1629,7 @@ const genericString: GenericInterface<string> = {
 // A Promise in JavaScript (and thus TypeScript) is an object representing the eventual completion or failure of an asynchronous operation.
 
 async function someFunc(): Promise<string> {
-  return 'Hello World';
+  return "Hello World";
 }
 
 const result = someFunc();
@@ -1647,7 +1645,7 @@ function generateStringArray(length: number, value: string): string[] {
   return result;
 }
 
-console.log(generateStringArray(3, 'hello'));
+console.log(generateStringArray(3, "hello"));
 
 function createArray<T>(length: number, value: T): Array<T> {
   let result: T[] = [];
@@ -1655,7 +1653,7 @@ function createArray<T>(length: number, value: T): Array<T> {
   return result;
 }
 
-let arrayStrings = createArray<string>(3, 'hello'); // ["hello", "hello", "hello"]
+let arrayStrings = createArray<string>(3, "hello"); // ["hello", "hello", "hello"]
 let arrayNumbers = createArray<number>(4, 100); // [100, 100, 100, 100]
 
 console.log(arrayStrings);
@@ -1670,7 +1668,7 @@ function pair<T, U>(param1: T, param2: U): [T, U] {
 }
 
 // Usage
-let result = pair<number, string>(123, 'Hello');
+let result = pair<number, string>(123, "Hello");
 console.log(result); // Output: [123, "Hello"]
 ```
 
@@ -1682,7 +1680,7 @@ function pair<T, U>(param1: T, param2: U): [T, U] {
 }
 
 // Usage
-let result = pair(123, 'Hello');
+let result = pair(123, "Hello");
 
 //  const [name,setName] = useState('')
 //  const [products,setProducts] = useState<Product[]>([])
@@ -1693,7 +1691,7 @@ function processValue<T extends number | string>(value: T): T {
   console.log(value);
 }
 
-processValue('hello');
+processValue("hello");
 processValue(12);
 processValue(true);
 ```
@@ -1707,8 +1705,8 @@ type Car = {
 };
 
 const car: Car = {
-  brand: 'ford',
-  model: 'mustang',
+  brand: "ford",
+  model: "mustang",
 };
 
 type Product = {
@@ -1717,7 +1715,7 @@ type Product = {
 };
 
 const product: Product = {
-  name: 'shoes',
+  name: "shoes",
   price: 1.99,
 };
 
@@ -1727,7 +1725,7 @@ type Student = {
 };
 
 const student: Student = {
-  name: 'peter',
+  name: "peter",
   age: 20,
 };
 
@@ -1767,7 +1765,7 @@ const storeNumbers: StoreData<number> = {
 };
 
 const randomStuff: StoreData = {
-  data: ['random', 1],
+  data: ["random", 1],
 };
 ```
 
@@ -1801,7 +1799,7 @@ export interface AxiosResponse<T = any, D = any> {
 - we won't set any state values
 
 ```ts
-const url = 'https://www.course-api.com/react-tours-project';
+const url = "https://www.course-api.com/react-tours-project";
 
 async function fetchData(url: string) {
   try {
@@ -1816,7 +1814,7 @@ async function fetchData(url: string) {
     return data;
   } catch (error) {
     const errMsg =
-      error instanceof Error ? error.message : 'there was an error...';
+      error instanceof Error ? error.message : "there was an error...";
     console.error(errMsg);
     // throw error;
     return [];
@@ -1838,7 +1836,7 @@ tours.map((tour: any) => {
 - setup type and provide correct return type
 
 ```ts
-const url = 'https://www.scourse-api.com/react-tours-project';
+const url = "https://www.scourse-api.com/react-tours-project";
 
 // Define a type for the data you're fetching.
 type Tour = {
@@ -1864,7 +1862,7 @@ async function fetchData(url: string): Promise<Tour[]> {
     return data;
   } catch (error) {
     const errMsg =
-      error instanceof Error ? error.message : 'there was an error...';
+      error instanceof Error ? error.message : "there was an error...";
     console.error(errMsg);
 
     // throw error;
@@ -1890,8 +1888,8 @@ npm install zod
 - [Error Handling in Zod](https://zod.dev/ERROR_HANDLING)
 
 ```ts
-import { z } from 'zod';
-const url = 'https://www.course-api.com/react-tours-project';
+import { z } from "zod";
+const url = "https://www.course-api.com/react-tours-project";
 
 const tourSchema = z.object({
   id: z.string(),
@@ -1922,7 +1920,7 @@ async function fetchData(url: string): Promise<Tour[]> {
     return result.data;
   } catch (error) {
     const errMsg =
-      error instanceof Error ? error.message : 'there was an error...';
+      error instanceof Error ? error.message : "there was an error...";
     console.log(errMsg);
 
     // throw error;
@@ -2014,7 +2012,7 @@ class Book {
   }
 }
 
-const deepWork = new Book('deep work ', 'cal newport');
+const deepWork = new Book("deep work ", "cal newport");
 ```
 
 ## Classes - Instance Property / Default Property
@@ -2032,7 +2030,7 @@ class Book {
   }
 }
 
-const deepWork = new Book('deep work ', 'cal newport');
+const deepWork = new Book("deep work ", "cal newport");
 deepWork.checkedOut = true;
 // deepWork.checkedOut = 'something else';
 ```
@@ -2052,9 +2050,9 @@ class Book {
   }
 }
 
-const deepWork = new Book('deep work ', 'cal newport');
+const deepWork = new Book("deep work ", "cal newport");
 
-deepWork.title = 'something else';
+deepWork.title = "something else";
 ```
 
 ## Classes - Private and Public Modifiers
@@ -2081,7 +2079,7 @@ class Book {
   }
 }
 
-const deepWork = new Book('Deep Work', 'Cal Newport');
+const deepWork = new Book("Deep Work", "Cal Newport");
 deepWork.checkOut();
 console.log(deepWork.isCheckedOut()); // true
 // deepWork.toggleCheckedOutStatus(); // Error: Property 'toggleCheckedOutStatus' is private and only accessible within class 'Book'.
@@ -2122,7 +2120,7 @@ class Book {
   }
 }
 
-const deepWork = new Book('deep work', 'cal newport');
+const deepWork = new Book("deep work", "cal newport");
 console.log(deepWork.info);
 // deepWork.checkOut = true;
 console.log(deepWork.someInfo);
@@ -2152,7 +2150,7 @@ class Person implements IPerson {
   }
 }
 
-const hipster = new Person('shakeAndBake', 100);
+const hipster = new Person("shakeAndBake", 100);
 hipster.greet();
 ```
 
@@ -2191,10 +2189,10 @@ hipster.greet();
 ## Tasks - Part 2
 
 ```ts
-const btn = document.querySelector('.btn');
+const btn = document.querySelector(".btn");
 
-btn?.addEventListener('click', () => {
-  console.log('something');
+btn?.addEventListener("click", () => {
+  console.log("something");
 });
 
 if (btn) {
@@ -2205,21 +2203,21 @@ if (btn) {
 The ! operator in TypeScript is officially known as the Non-null assertion operator. It is used to assert that its preceding expression is not null or undefined.
 
 ```ts
-const btn = document.querySelector('.btn')!;
+const btn = document.querySelector(".btn")!;
 
-btn.addEventListener('click', () => {
-  console.log('something');
+btn.addEventListener("click", () => {
+  console.log("something");
 });
 ```
 
 Element is the most general base class from which all element objects (i.e. objects that represent elements) in a Document inherit. It only has methods and properties common to all kinds of elements. More specific classes inherit from Element.
 
 ```ts
-const btn = document.querySelector<HTMLButtonElement>('.selector')!;
+const btn = document.querySelector<HTMLButtonElement>(".selector")!;
 
 btn.disabled = true;
 
-const btn = document.querySelector('.selector')! as HTMLButtonElement;
+const btn = document.querySelector(".selector")! as HTMLButtonElement;
 
 btn.disabled = true;
 ```
@@ -2227,9 +2225,9 @@ btn.disabled = true;
 ## Tasks - Part 3
 
 ```ts
-const taskForm = document.querySelector<HTMLFormElement>('.form');
-const formInput = document.querySelector<HTMLInputElement>('.form-input');
-const taskListElement = document.querySelector<HTMLUListElement>('.list');
+const taskForm = document.querySelector<HTMLFormElement>(".form");
+const formInput = document.querySelector<HTMLInputElement>(".form-input");
+const taskListElement = document.querySelector<HTMLUListElement>(".list");
 
 // task type
 type Task = {
@@ -2243,7 +2241,7 @@ const tasks: Task[] = [];
 ## Tasks - Part 4
 
 ```ts
-taskForm?.addEventListener('submit', (event) => {
+taskForm?.addEventListener("submit", (event) => {
   event.preventDefault();
   const taskDescription = formInput?.value;
   if (taskDescription) {
@@ -2251,10 +2249,10 @@ taskForm?.addEventListener('submit', (event) => {
     // render tasks
     // update local storage
 
-    formInput.value = '';
+    formInput.value = "";
     return;
   }
-  alert('Please enter a task description');
+  alert("Please enter a task description");
 });
 ```
 
@@ -2269,19 +2267,19 @@ function createTask(event: SubmitEvent) {
     // render tasks
     // update local storage
 
-    formInput.value = '';
+    formInput.value = "";
     return;
   }
-  alert('Please enter a task description');
+  alert("Please enter a task description");
 }
 
-taskForm?.addEventListener('submit', createTask);
+taskForm?.addEventListener("submit", createTask);
 ```
 
 ## Tasks - Part 5
 
 ```ts
-taskForm?.addEventListener('submit', (event) => {
+taskForm?.addEventListener("submit", (event) => {
   event.preventDefault();
   const taskDescription = formInput?.value;
   if (taskDescription) {
@@ -2295,10 +2293,10 @@ taskForm?.addEventListener('submit', (event) => {
 
     // update local storage
 
-    formInput.value = '';
+    formInput.value = "";
     return;
   }
-  alert('Please enter a task description');
+  alert("Please enter a task description");
 });
 
 function addTask(task: Task): void {
@@ -2311,7 +2309,7 @@ function addTask(task: Task): void {
 
 ```ts
 function renderTask(task: Task): void {
-  const taskElement = document.createElement('li');
+  const taskElement = document.createElement("li");
   taskElement.textContent = task.description;
   taskListElement?.appendChild(taskElement);
 }
@@ -2332,7 +2330,7 @@ const tasks: Task[] = loadTasks();
 
 // Load tasks from localStorage
 function loadTasks(): Task[] {
-  const storedTasks = localStorage.getItem('tasks');
+  const storedTasks = localStorage.getItem("tasks");
   return storedTasks ? JSON.parse(storedTasks) : [];
 }
 
@@ -2341,7 +2339,7 @@ tasks.forEach(renderTask);
 
 // Update tasks in localStorage
 function updateStorage(): void {
-  localStorage.setItem('tasks', JSON.stringify(tasks));
+  localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 ```
 
@@ -2358,11 +2356,11 @@ updateStorage();
 
 ```ts
 function renderTask(task: Task): void {
-  const taskElement = document.createElement('li');
+  const taskElement = document.createElement("li");
   taskElement.textContent = task.description;
   // checkbox
-  const taskCheckbox = document.createElement('input');
-  taskCheckbox.type = 'checkbox';
+  const taskCheckbox = document.createElement("input");
+  taskCheckbox.type = "checkbox";
   taskCheckbox.checked = task.isCompleted;
 
   taskElement.appendChild(taskCheckbox);
@@ -2374,14 +2372,14 @@ function renderTask(task: Task): void {
 
 ```ts
 function renderTask(task: Task): void {
-  const taskElement = document.createElement('li');
+  const taskElement = document.createElement("li");
   taskElement.textContent = task.description;
   // checkbox
-  const taskCheckbox = document.createElement('input');
-  taskCheckbox.type = 'checkbox';
+  const taskCheckbox = document.createElement("input");
+  taskCheckbox.type = "checkbox";
   taskCheckbox.checked = task.isCompleted;
   // toggle checkbox
-  taskCheckbox.addEventListener('change', () => {
+  taskCheckbox.addEventListener("change", () => {
     task.isCompleted = !task.isCompleted;
     updateStorage();
   });
@@ -2463,8 +2461,8 @@ html {
 
 body {
   background: var(--background-color);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 400;
   line-height: 1;
   color: var(--text-color);
