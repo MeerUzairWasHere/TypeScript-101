@@ -1,0 +1,13 @@
+{
+  "name": "01-typescript-basics",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start:01": "tsc -b && node ./dist/01-type-annotations.js",
+    "start:02": "tsc -b && node ./dist/02-type-inference.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
