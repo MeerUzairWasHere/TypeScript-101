@@ -19,3 +19,4 @@ isAwesome = false;
 
 // isAwesome = 'shakeAndBake';
 console.log(isAwesome); // FALSE
+

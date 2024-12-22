@@ -10,4 +10,5 @@ tax = '$10';
 let requestStatus: 'pending' | 'success' | 'error' = 'pending';
 requestStatus = 'success';
 requestStatus = 'error';
+
 // requestStatus = 'random';

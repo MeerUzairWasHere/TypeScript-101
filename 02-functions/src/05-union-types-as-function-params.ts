@@ -19,3 +19,4 @@ processInput("Hello"); // Output: HELLO
 
 // In this example, the processInput function takes a parameter input that can be either a string or a number. Inside the function, we use a type guard (typeof input === 'number') to check the type of input at runtime. If input is a number, we double it. If input is a string, we convert it to uppercase.
 
+

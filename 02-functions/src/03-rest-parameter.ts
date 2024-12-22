@@ -13,3 +13,4 @@ function sum(message: string, ...numbers: number[]): string {
 }
 
 // let result = sum("The total is:", 1, 2, 3, 4, 5); // result will be "The total is: 15"
+

@@ -22,6 +22,7 @@ const newStudent = {
 };
 
 createStudent(newStudent);
+
 // Gotcha - Excess Property Checks
 function createStudent2(student: { id: number; name: string }) {
   console.log(`Welcome to the course ${student.name.toUpperCase()}!!!`);
@@ -34,6 +35,7 @@ const newStudent1 = {
 };
 
 createStudent2(newStudent1);
+
 // createStudent({ id: 1, name: "bob", email: "bob@gmail.com" });
 
 // TypeScript only performs excess property checks on object literals where they're used, not on references to them.

@@ -10,3 +10,4 @@ console.log(count.toFixed(2)); // 123.00
 
 let arr = ["a", "b", "c"];
 console.log(arr.join(",")); // "a,b,c"
+

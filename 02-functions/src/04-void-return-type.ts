@@ -16,3 +16,4 @@ function logMessage(message: string): void {
 }
 
 logMessage("Hello, TypeScript!"); // Output: Hello, TypeScript!
+

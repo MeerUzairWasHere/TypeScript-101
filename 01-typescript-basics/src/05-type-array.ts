@@ -14,4 +14,5 @@ let fruit: string[] = ["apple", "orange"];
 // be careful with inferred array types
 // let names = ['peter', 'susan'];
 // let names = ['peter', 'susan', 1];
+
 let array: (string | boolean)[] = ["apple", true, "orange", false];

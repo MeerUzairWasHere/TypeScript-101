@@ -19,6 +19,7 @@ function calculateScore(initialScore: number, penaltyPoints: number = 0) {
   return initialScore - penaltyPoints;
 }
 
+
 let scoreAfterPenalty = calculateScore(100, 20);
 console.log(scoreAfterPenalty); // Output: 80
 

@@ -29,6 +29,7 @@ function addThree(number: any) {
   return number + anotherNumber;
 }
 const result = addThree(2);
+
 const someValue = result;
 
 // run time error
