@@ -61,8 +61,6 @@ function getServerResponse(): ServerResponse {
 //   };
 // }
 
-
-
 // ## Challenge
 
 // - Define an enum named UserRole with members Admin, Manager, and Employee.
@@ -78,7 +76,7 @@ enum UserRole {
 }
 
 // Define a type alias named User
-type User = {
+type User1 = {
   id: number;
   name: string;
   role: UserRole;
@@ -86,17 +84,16 @@ type User = {
 };
 
 // Define a function named createUser
-function createUser(user: User): User {
+function createUser(user: User1): User1 {
   return user;
 }
 
 // Call the createUser function
-const user: User = createUser({
+const user1: User1 = createUser({
   id: 1,
   name: "John Doe",
   role: UserRole.Admin,
   contact: ["john.doe@example.com", "123-456-7890"],
 });
 
-console.log(user);
-
+console.log(user1);
