@@ -75,7 +75,7 @@ enum Color {
 
 function getColorName(color: Color) {
   switch (color) {
-    case Color.Red:
+    case Color.Red:``
       return "Red";
     case Color.Blue:
       return "Blue";
