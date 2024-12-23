@@ -1,11 +1,9 @@
-
 // ## Type - 'unknown'
 
 // The unknown type in TypeScript is a type-safe counterpart of the any type. It's like saying that a variable could be anything, but we need to perform some type-checking before we can use it.
 
 // "error instanceof Error" checks if the error object is an instance of the Error class.
 
-  
 let unknownValue: unknown;
 
 // Assign different types of values to unknownValue
@@ -40,14 +38,12 @@ try {
     console.log("there was an error....");
   }
 }
-   
 
 // ## Type - "never"
 
 // In TypeScript, never is a type that represents the type of values that never occur.you can't assign any value to a variable of type never.
 // TypeScript will give a compile error if there are any unhandled cases, helping ensure that all cases are handled.
 
-  
 // let someValue: never = 0;
 
 type Theme = "light" | "dark";
@@ -64,9 +60,7 @@ function checkTheme(theme: Theme) {
   theme;
   // theme is of type never, because it can never have a value that is not 'light' or 'dark'.
 }
-   
 
-  
 enum Color {
   Red,
   Blue,
@@ -75,7 +69,7 @@ enum Color {
 
 function getColorName(color: Color) {
   switch (color) {
-    case Color.Red:``
+    case Color.Red:
       return "Red";
     case Color.Blue:
       return "Blue";
@@ -90,4 +84,3 @@ function getColorName(color: Color) {
 console.log(getColorName(Color.Red)); // Red
 console.log(getColorName(Color.Blue)); // Blue
 // console.log(getColorName(Color.Green)); // Green
-   
