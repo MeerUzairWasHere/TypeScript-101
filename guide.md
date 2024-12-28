@@ -1,5 +1,3 @@
-
-
 ## Classes - Intro
 
 Classes in JavaScript are a blueprint for creating objects. They encapsulate data with code to manipulate that data. Classes in JavaScript support inheritance and can be used to create more complex data structures.
