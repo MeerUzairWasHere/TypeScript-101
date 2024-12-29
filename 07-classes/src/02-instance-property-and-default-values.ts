@@ -2,7 +2,7 @@
 
 // The checkedOut property in Book class is an instance property (or member variable). It's not specifically set in the constructor, so it could also be referred to as a default property or a property with a default value.
 
-class Book {
+class Book1 {
   title: string;
   author: string;
   checkedOut: boolean = false;
@@ -12,6 +12,6 @@ class Book {
   }
 }
 
-const deepWork = new Book("deep work ", "cal newport");
-deepWork.checkedOut = true;
+const deepWork1 = new Book1("deep work ", "cal newport");
+deepWork1.checkedOut = true;
 // deepWork.checkedOut = 'something else';
