@@ -1,8 +1,3 @@
-
-
-
-
-
 ## Classes - Implement Interface
 
 In TypeScript, an interface is a way to define a contract for a certain structure of an object. This contract can then be used by a class to ensure it adheres to the structure defined by the interface.
