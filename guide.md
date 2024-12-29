@@ -3,37 +3,6 @@
 
 
 
-## Classes - Getters and Setters
-
-Getters and setters are special methods in a class that allow you to control how a property is accessed and modified.They are used like properties, not methods, so you don't use parentheses to call them.
-
-```ts
-class Book {
-  private checkedOut: boolean = false;
-  constructor(public readonly title: string, public author: string) {}
-  get info() {
-    return `${this.title} by ${this.author}`;
-  }
-
-  private set checkOut(checkedOut: boolean) {
-    this.checkedOut = checkedOut;
-  }
-  get checkOut() {
-    return this.checkedOut;
-  }
-  public get someInfo() {
-    this.checkOut = true;
-    return `${this.title} by ${this.author}`;
-  }
-}
-
-const deepWork = new Book("deep work", "cal newport");
-console.log(deepWork.info);
-// deepWork.checkOut = true;
-console.log(deepWork.someInfo);
-console.log(deepWork.checkOut);
-```
-
 ## Classes - Implement Interface
 
 In TypeScript, an interface is a way to define a contract for a certain structure of an object. This contract can then be used by a class to ensure it adheres to the structure defined by the interface.
