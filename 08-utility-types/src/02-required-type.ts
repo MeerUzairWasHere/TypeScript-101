@@ -4,7 +4,7 @@ interface User2 {
   email?: string;
 }
 
-type CompleteUser = Required<User>;
+type CompleteUser = Required<User2>;
 // Equivalent to: { id: number; name: string; email: string }
 // `CompleteUser` ensures all properties are required, including optional ones.
 
